@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="col-sm-10 ml-auto mr-auto ">
+    <H2>View this Show</H2>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Amend Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+              <td>{{entry.name}}</td>
+              <td>{{entry.genre}}</td>
+              <td>{{entry.rating}}</td>
+              <td>{{entry.id}}</td>
+              <td><a href="{{url_for('amendRating', id = entry.id)}}" class="btn btn-outline-danger btn-sm">Rating</a></td>
+    </tbody>
+    </table>
+</div>
+
+{% endblock %}
