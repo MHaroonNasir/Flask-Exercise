@@ -10,15 +10,17 @@
                 <th scope="col">Name</th>
                 <th scope="col">Genre</th>
                 <th scope="col">Rating</th>
-                <th scope="col">Amend Rating</th>
+                <th scope="col">Increase Rating</th>
+                <th scope="col">Decrease Rating</th>
             </tr>
         </thead>
         <tbody>
-              <td>{{entry.name}}</td>
-              <td>{{entry.genre}}</td>
-              <td>{{entry.rating}}</td>
-              <td>{{entry.id}}</td>
-              <td><a href="{{url_for('amendRating', id = entry.id)}}" class="btn btn-outline-danger btn-sm">Rating</a></td>
+            <td>{{entry.id}}</td>
+            <td>{{entry.name}}</td>
+            <td>{{entry.genre}}</td>
+            <td>{{entry.rating}}</td>
+            <td><a href="{{url_for('amendRating', userid = entry.id, operation = 'increase')}}" class="btn btn-outline-success btn-sm">Update</a></td>
+            <td><a href="{{url_for('amendRating', userid = entry.id, operation = 'decrease')}}" class="btn btn-outline-danger btn-sm">Update</a></td>
     </tbody>
     </table>
 </div>

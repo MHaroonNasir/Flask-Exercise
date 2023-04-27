@@ -10,4 +10,4 @@ class Shows(db.Model):
     release = db.Column(db.DateTime, default = datetime.utcnow, nullable = False)
 
     def __str__(self):
-        return self.id
+        return str(self.id)

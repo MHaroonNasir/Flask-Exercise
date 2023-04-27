@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="container">
+        <h1>Shows chart based on Genre</h1>
+        <canvas id="showsGenreChart">
+
+        </canvas>
+    </div>
+    <script>
+        const data = {{ data|tojson }}
+        const options = document.getElementById('showsGenreChart')
+        const lable = data.map(show => show.name)
+        const rating = data.map(show => show.rating)
+        const genres = data.map(show => show.genre)
+        const chartData = {
+            lables: lable,
+            datasets: [{
+                lable: 'Show Rating',
+                data: rating,
+                backgroundColor : genre.map(genre => {
+                    if (genre === 'horror') {
+                        return '#00bcd4'
+                    }
+                    else if (type === '500') {
+                        return '#ff5a5f'
+                    }
+                    else if (type === 'salary') {
+                        return '#ffd700'
+                    }
+                    else {
+                        return '#ff0000'
+                    }
+                }),
+                borderColor : 'black',
+                borderWidth: 1
+            }]
+        }
+        const chartOptions = {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+        const incomeExpensesChart = new Chart(options, {
+            type: 'pie',
+            data: chartData,
+            options: chartOptions
+        })
+    </script>
+{% endblock %}
